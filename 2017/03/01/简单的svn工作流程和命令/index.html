@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>简单的svn工作流程和命令 | 小巷深深的博客</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="svn可以对我们的代码进行系统的管理。主要功能就是保存历史记录，方便版本回退，查看修改记录，保存版本防止丢失。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="简单的svn工作流程和命令">
+<meta property="og:url" content="https://songdh.github.io/2017/03/01/简单的svn工作流程和命令/index.html">
+<meta property="og:site_name" content="小巷深深的博客">
+<meta property="og:description" content="svn可以对我们的代码进行系统的管理。主要功能就是保存历史记录，方便版本回退，查看修改记录，保存版本防止丢失。">
+<meta property="og:updated_time" content="2017-06-18T17:21:17.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="简单的svn工作流程和命令">
+<meta name="twitter:description" content="svn可以对我们的代码进行系统的管理。主要功能就是保存历史记录，方便版本回退，查看修改记录，保存版本防止丢失。">
+  
+    <link rel="alternate" href="/atom.xml" title="小巷深深的博客" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link rel="stylesheet" href="/css/style.css">
+  
+
+</head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">小巷深深的博客</a>
+      </h1>
+      
+        <h2 id="subtitle-wrap">
+          <a href="/" id="subtitle">庭院深深深几许</a>
+        </h2>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="搜索"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="https://songdh.github.io"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="post-简单的svn工作流程和命令" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2017/03/01/简单的svn工作流程和命令/" class="article-date">
+  <time datetime="2017-03-01T06:16:40.000Z" itemprop="datePublished">2017-03-01</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      简单的svn工作流程和命令
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>svn可以对我们的代码进行系统的管理。主要功能就是保存历史记录，方便版本回退，查看修改记录，保存版本防止丢失。<br><a id="more"></a><br>理想状态下，希望svn上的每一个版本拿下来都是可以正确运行的。所以建议大家提交代码要少量多次，每次修改一个功能就马上提交，可以避免修改太多导致合并出错或者遗漏。（如果一次修改的太多，合并代码时花费半天一天时间也是很正常的）</p>
+<h3 id="一、-常用命令"><a href="#一、-常用命令" class="headerlink" title="一、 常用命令"></a>一、 常用命令</h3><ol>
+<li>svn checkout <a href="http://xxxx：" target="_blank" rel="external">http://xxxx：</a></li>
+<li>svn checkout <a href="http://xxxx：" target="_blank" rel="external">http://xxxx：</a></li>
+<li>从svn服务器获取最新的版本</li>
+<li>svn log ：查看所有日志</li>
+<li>svn log -l 4 : 查看最近的四条日志</li>
+<li>svn commit -m “修改记录”: 提交本地代码</li>
+<li>svn info:查看当前版本的svn信息，主要查看svn路径和工程版本号</li>
+<li>svn up:更新库上最新版本到本地。</li>
+<li>svn up -r 2014:将本地版本更新为r2014版本</li>
+<li>svn st: 相对于库上最新版本，显示本地修改了哪些文件</li>
+<li>svn st后会列出所有修改的文件</li>
+<li>svn revert aaa.txt 忽略对aaa.txt文件的修改，即未提交的修改都会被删除</li>
+<li>A:此文件是新增文件</li>
+<li>M:此文件内容修改</li>
+<li>D:此文件要删除</li>
+<li>?：未知类型，可以根据需要，在本地将其删除，或者使用svn add,svn delete将其关联到库上</li>
+<li>svn add aaa.txt</li>
+<li>svn delete aaa.txt</li>
+</ol>
+<h3 id="二、svn提交建议"><a href="#二、svn提交建议" class="headerlink" title="二、svn提交建议"></a>二、svn提交建议</h3><p>在多人共同修改同一个文件时很容易出现冲突。或者如xcode工程文件很复杂，容易将一些垃圾信息上传，所以建议svn目录和工作目录分开，使用比较工具合并代码，然后再提交。这样做虽然会浪费些时间，但可以最大限度保证提交代码的质量，在合并代码的时候还能review一下修改部分，发现一些错误。<br>根据我们现在的项目情况，建议操作流程如下：</p>
+<ol>
+<li>svn checkout 取下最新的版本（svn 版本）</li>
+<li>将此版本复制一份到正在修改的工程下进行修改。（工作版本）</li>
+<li>将svn版本更新（svn up）</li>
+<li>使用比较工具将工作版本的修改合并到svn版本。合并完成后 svn st,确认所有修改的文件正确</li>
+<li>在工程中添加删除文件都会修改工程文件，而工程文件不好合并，建议合并完代码后，在svn版本中打开工程文件，再执行一次删除或者添加文件的操作</li>
+<li>在合并的时候有可能其他人已经提交了代码，所以在确认后再运行svn up，如果有冲突，将冲突代码下载下来，在工程中修改。然后再执行第四步</li>
+<li>若没有冲突，使用svn commit -m “提交日志”将代码提交。</li>
+</ol>
+<h3 id="三、推荐工具"><a href="#三、推荐工具" class="headerlink" title="三、推荐工具"></a>三、推荐工具</h3><p><code>windows</code></p>
+<ul>
+<li><code>tortoiseSVN</code> 可以方便的查看修改的文件、提交日志、历史版本等。上面提到的svn up ,commit,log等命令在软件中都有菜单可以点击</li>
+<li><code>beyondcompare3</code> 一款非常优秀的二进制比较工具，可以比较任何文件，效率很高</li>
+</ul>
+<p><code>mac</code></p>
+<ul>
+<li><code>versions</code> 相比windows上的工具来说真是太难用了</li>
+<li><code>命令行</code> 上面提到的几个命令足以应付日常使用了，很方便，比那些工具好用太多了</li>
+<li>比较工具：<code>changes</code> 目前只发现这一款还算可以，但效率就真不敢恭维了。还经常崩溃，聊胜于无吧</li>
+<li>Xcode的代码比较，这个真是非常好用</li>
+</ul>
+<p>希望以上建议能帮助大家正确的提交代码.有不对的地方请各位指正</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://songdh.github.io/2017/03/01/简单的svn工作流程和命令/" data-id="cj4jc5h2p000axjs66vkv079o" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2017/03/01/在Objective-C中声明Block/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          在Objective-C中声明Block
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2017/02/01/在MAC上使用Github-Hexo搭建个人博客/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">在MAC上使用Github+Hexo搭建个人博客</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">分类</h3>
+    <div class="widget">
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/iOS/">iOS</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/前端/">前端</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/工具/">工具</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+
+  
+    
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">归档</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/06/">六月 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/04/">四月 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/03/">三月 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/02/">二月 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/12/">十二月 2015</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/03/">三月 2015</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">最新文章</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2017/06/30/用dumpdecrypted给App砸壳/">用dumpdecrypted给App砸壳</a>
+          </li>
+        
+          <li>
+            <a href="/2017/04/01/从零开始创建一个iOS-APP/">从零开始创建一个iOS APP</a>
+          </li>
+        
+          <li>
+            <a href="/2017/03/05/使用Python网络爬虫爬取糗事百科页面内容/">使用Python网络爬虫爬去糗事百科页面内容</a>
+          </li>
+        
+          <li>
+            <a href="/2017/03/02/Python学习笔记/">Python学习笔记</a>
+          </li>
+        
+          <li>
+            <a href="/2017/03/01/在Objective-C中声明Block/">在Objective-C中声明Block</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2017 Songdh<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/js/script.js"></script>
+
+  </div>
+</body>
+</html>

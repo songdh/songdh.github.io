@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>ios中的字面量语法 | 小巷深深的博客</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="oc的语法很繁杂，在定义一些数组、字典的时候要写很长的方法。通过字面量语法可以像c语言那样定义数组等，可以缩减代码长度。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="ios中的字面量语法">
+<meta property="og:url" content="https://songdh.github.io/2015/03/21/ios中的字面量语法/index.html">
+<meta property="og:site_name" content="小巷深深的博客">
+<meta property="og:description" content="oc的语法很繁杂，在定义一些数组、字典的时候要写很长的方法。通过字面量语法可以像c语言那样定义数组等，可以缩减代码长度。">
+<meta property="og:updated_time" content="2017-06-18T17:21:17.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="ios中的字面量语法">
+<meta name="twitter:description" content="oc的语法很繁杂，在定义一些数组、字典的时候要写很长的方法。通过字面量语法可以像c语言那样定义数组等，可以缩减代码长度。">
+  
+    <link rel="alternate" href="/atom.xml" title="小巷深深的博客" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link rel="stylesheet" href="/css/style.css">
+  
+
+</head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">小巷深深的博客</a>
+      </h1>
+      
+        <h2 id="subtitle-wrap">
+          <a href="/" id="subtitle">庭院深深深几许</a>
+        </h2>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="搜索"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="https://songdh.github.io"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="post-ios中的字面量语法" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2015/03/21/ios中的字面量语法/" class="article-date">
+  <time datetime="2015-03-21T06:31:41.000Z" itemprop="datePublished">2015-03-21</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      ios中的字面量语法
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>oc的语法很繁杂，在定义一些数组、字典的时候要写很长的方法。通过字面量语法可以像c语言那样定义数组等，可以缩减代码长度。<br><a id="more"></a></p>
+<blockquote>
+<p>看到自己15年初的博客，想起那个时候刚开始独自负责ios项目。知识储备太少了，那个时候每天上班地铁上都会抱着一本书看，那个时候也是年轻，真的是精力旺盛啊。当时在书上看到了字面量语法，然后就全面用在项目里了。当其他组的人看到问这是什么东西的时候，觉得自己好nb啊。怀念当初奋斗的时光。    </p>
+</blockquote>
+<p>在xcode4.5，ios6以上版本已经全面支持以下的字面量。</p>
+<h4 id="我们常用的字面量"><a href="#我们常用的字面量" class="headerlink" title="我们常用的字面量"></a>我们常用的字面量</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">NSString* str = @&quot;Hello World&quot;;</div></pre></td></tr></table></figure>
+<h4 id="NSNumber"><a href="#NSNumber" class="headerlink" title="NSNumber"></a>NSNumber</h4><p>NSNumber支持的所有类型都可以用字面量语法<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">NSNumber *someNumber = [NSNumber numberWithInt:1];</div><div class="line">someNumber = [NSNumber numberWithFloat:1.5f];</div><div class="line">someNumber = [NSNumber numberWithChar:&apos;A&apos;];</div><div class="line">someNumber = [NSNumber numberWithBool:YES];</div><div class="line"></div><div class="line">NSNumber* someNumber1;</div><div class="line">someNumber1 = @1;</div><div class="line">someNumber1 = @1.5f;</div><div class="line">someNumber1 = @&apos;A&apos;;</div><div class="line">someNumber1 = @YES;</div></pre></td></tr></table></figure></p>
+<h4 id="字面量语法还适用于下列的表达式"><a href="#字面量语法还适用于下列的表达式" class="headerlink" title="字面量语法还适用于下列的表达式"></a>字面量语法还适用于下列的表达式</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">int x = 4;</div><div class="line">float y = 5.33f;</div><div class="line">NSNumber *someNumber2 = @(x * y);</div></pre></td></tr></table></figure>
+<h4 id="字面量数组"><a href="#字面量数组" class="headerlink" title="字面量数组"></a>字面量数组</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">NSArray* week = [NSArray arrayWithObjects:@&quot;Monday&quot;,@&quot;Tuesday&quot;,@&quot;Wednesday&quot;,@&quot;Thursday&quot;,@&quot;Friday&quot;,nil];</div><div class="line">NSString* Wed = [week objectAtIndex:2];</div><div class="line"></div><div class="line">NSArray* week1 = @[@&quot;Monday&quot;,@&quot;Tuesday&quot;,@&quot;Wednesday&quot;,@&quot;Thursday&quot;,@&quot;Friday&quot;];</div><div class="line">NSString* Wed1 = week1[2];</div></pre></td></tr></table></figure>
+<p>不过,用字面量语法创建数组时要注意,若数组元素对象中有nil,则会抛出异常<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">*** Terminating app due to uncaught exception&apos;NSInvalidArgumentException&apos;, </div><div class="line"></div><div class="line">reason: &apos;***-[__NSPlaceholderArray initWithObjects:count:]: attempt toinsert nil object from objects[0]&apos;</div></pre></td></tr></table></figure></p>
+<p>在改用字面量语法来创建数组时就会遇到这个问题。下面这段代码分别以两种语法创建</p>
+<h6 id="数组"><a href="#数组" class="headerlink" title="数组:"></a>数组:</h6><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">id object1 = @&quot;1234&quot;; </div><div class="line">id object2 =nil; </div><div class="line">id object3 =@&quot;4567&quot;;</div><div class="line"></div><div class="line">NSArray *arrayA = [NSArray array WithObjects:object1, object2, object3, nil];</div><div class="line">NSArray *arrayB = @[object1, object2, object3];</div></pre></td></tr></table></figure>
+<p>大家想想:如果 object1 与 object3 都指向了有效的 Objective-C 对象,而 object2 是 nil, 那么会出现什么情况呢?按字面量语法创建数组 arrayB 时会抛出异常。arrayA 虽然能创建出 来,但是其中却只含有 object1 一个对象。原因在于,“ arrayWithObjects:”方法会依次处理 各个参数,直到发现 nil 为止,由于 object2 是 nil,所以该方法会提前结束。<br>这个微妙的差别表明,使用字面量语法更为安全。抛出异常令应用程序终止执行,这比 创建好数组之后才发现元素个数少了要好。向数组中插入 nil 通常说明程序有错,而通过异 常可以更快地发现这个错误。</p>
+<h4 id="字面量字典"><a href="#字面量字典" class="headerlink" title="字面量字典"></a>字面量字典</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">NSDictionary* dic = [NSDictionary dictionaryWithObjectsAndKeys:@&quot;Song&quot;,@&quot;name&quot;,</div><div class="line">                     @&quot;28&quot;,@&quot;age&quot;,</div><div class="line">                     @&quot;12345678&quot;,@&quot;tel&quot;, nil];</div><div class="line">NSString *name = [dic objectForKey:@&quot;name&quot;];</div><div class="line"></div><div class="line"></div><div class="line">NSDictionary* dic1 = @&#123;@&quot;name&quot;:@&quot;Song&quot;,</div><div class="line">                       @&quot;age&quot;:@&quot;28&quot;,</div><div class="line">                       @&quot;tel&quot;:@&quot;12345678&quot;&#125;;</div><div class="line">NSString *name1 = dic1[@&quot;name&quot;];</div></pre></td></tr></table></figure>
+<p>使用字面量字典与字面量数组一样，如果元素中有nil值，则会抛出异常。</p>
+<p><strong>局限性</strong>：字面量语法有个小小的限制,就是除了字符串以外,所创建出来的对象必须属于Foundation框架才行。如果自定义了这些类的子类,则无法用字面量语法创建其对象。要想创建自定义子类的实例,必须采用“非字面量语法” </p>
+<p>使用字面量语法创建出来的字符串、数组、字典对象都是不可变的(immutable)。若想要可变版本的对象,则需复制一份:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">NSMutableArray *mutableArray = [@[@1, @2, @3, @4, @5]mutableCopy];</div><div class="line">mutableArray[3] = @33;</div><div class="line"></div><div class="line">NSMutableDictionary* mutableDic = [@&#123;@&quot;name&quot;:@&quot;song&quot;,</div><div class="line">                             @&quot;age&quot;:@&quot;28&quot;,</div><div class="line">                              @&quot;tel&quot;:@&quot;1234567&quot;&#125;mutableCopy];</div><div class="line">mutableDic[@&quot;age&quot;]=@&quot;30&quot;;</div></pre></td></tr></table></figure></p>
+<h4 id="要点"><a href="#要点" class="headerlink" title="要点"></a>要点</h4><p>应该使用字面量语法来创建字符串、数值、数组、字典。与创建此类对象的常规方法相比,这么做更加简明扼要。</p>
+<p>应该通过取下标操作来访问数组下标或字典中的键所对应的元素。</p>
+<p>用字面量语法创建数组或字典时,若值中有nil,则会抛出异常。因此,务必确保值里不含<strong>nil</strong>。</p>
+<p>以上均参考和摘抄自<strong><em>《编写高质量iOS与OS X代码的52个有效方法》</em></strong>大家感兴趣可以购买这本书看一下。<br><a href="http://blog.csdn.net/annkie/article/details/9722659" target="_blank" rel="external">参考博客</a></p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://songdh.github.io/2015/03/21/ios中的字面量语法/" data-id="cj4jc5h2a0001xjs6u1y7hitl" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2015/12/02/ios如何在应用内部提示更新/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          ios如何在应用内部提示更新
+        
+      </div>
+    </a>
+  
+  
+</nav>
+
+  
+</article>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">分类</h3>
+    <div class="widget">
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/iOS/">iOS</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/前端/">前端</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/工具/">工具</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+
+  
+    
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">归档</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/06/">六月 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/04/">四月 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/03/">三月 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/02/">二月 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/12/">十二月 2015</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/03/">三月 2015</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">最新文章</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2017/06/30/用dumpdecrypted给App砸壳/">用dumpdecrypted给App砸壳</a>
+          </li>
+        
+          <li>
+            <a href="/2017/04/01/从零开始创建一个iOS-APP/">从零开始创建一个iOS APP</a>
+          </li>
+        
+          <li>
+            <a href="/2017/03/05/使用Python网络爬虫爬取糗事百科页面内容/">使用Python网络爬虫爬去糗事百科页面内容</a>
+          </li>
+        
+          <li>
+            <a href="/2017/03/02/Python学习笔记/">Python学习笔记</a>
+          </li>
+        
+          <li>
+            <a href="/2017/03/01/在Objective-C中声明Block/">在Objective-C中声明Block</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2017 Songdh<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/js/script.js"></script>
+
+  </div>
+</body>
+</html>
